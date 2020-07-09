@@ -14,5 +14,5 @@
 void llTableAddString( linkedListNode_t ** hashtbl, char *string ){
 	unsigned int newHash = hash(string);
 	unsigned int hashIndex = newHash % DEFAULT_SIZE;
-	prependNode(&(hashtbl[hashIndex]),&string);
+	prependNode(&(hashtbl[hashIndex]),string);
 }

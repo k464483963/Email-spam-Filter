@@ -11,8 +11,8 @@
 #include "pa1.h"
 
 
-llTableAddString_t( linkedListNode_t ** hashtbl, char *string ){
+llTableAddString_t *retrieveLinkedList( linkedListNode_t ** hashtbl, char *string ){
 	unsigned int newHash = hash(string);
        unsigned int hashIndex = newHash % DEFAULT_SIZE;
-       return hashIndex
+       return hashtbl[hashIndex];
 }

@@ -16,10 +16,15 @@ void populateTable(linkedListNode_t ** hashtbl, FILE * dataFile){
 
 	while(fgets(newArray,2003,dataFile)!= 0){
 
-		char *newNode = strchr(newArray,'\n');
-		*newNode = '\0';
-		tolower(newArray);
-		llTableAddString(&hashtbl,&newArray);
+		char *newLine = strchr(newArray,'\n');
+		if(newLine != NULL){
+			*newLine = '\0';
+		}
+		for(int i =0; i<(sizeof newArray/sizeof newArray[0]);i++){
+			tolower(newArray[i]);
+		}
+
+		llTableAddString(hashtbl,newArray);
 	}
 
 

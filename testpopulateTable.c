@@ -19,15 +19,17 @@
  *  void populateTable( linkedListNode_t ** hashtbl, FILE * dataFile )  
  */
 void testpopulateTable() {
-    char c[] = "We";
+    char c[] = "we";
     FILE *fil;
-   fil = fopen("file.txt","w+");
-   fprintf(fil,"%s","We");
+   fil = fopen("file.txt","r");
+  if(!fil){
+	  perror("error opening");
+	  return;} 
    linkedListNode_t ** newLinklist = newLinkedListArray(DEFAULT_SIZE);
    populateTable(newLinklist,fil);
    unsigned int hashindex = hash(c);
    unsigned int newIndex = hashindex % DEFAULT_SIZE;
-   TEST(strcmp((newLinklist[newIndex])->value,"We")==0);
+   TEST(strcmp((newLinklist[newIndex])->value,"we")==0);
    fclose(fil); 
 }
 

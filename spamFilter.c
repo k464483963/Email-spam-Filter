@@ -27,7 +27,7 @@ int main(int argc, char *argv[] ){
 		return 0;
 	}
 	if(argc==3){
-		fw=fopen(aryg[2],"r+");
+		fw=fopen(argv[2],"r+");
 	}
 	if(fw == NULL){
 		perror(FILTER_ERR);
@@ -37,10 +37,10 @@ int main(int argc, char *argv[] ){
 
 	linkedListNode_t ** newLinklist = newLinkedListArray(DEFAULT_SIZE);
 
-	populateTable(newLinkList,fw);
+	populateTable(newLinklist,fw);
 
 
-	lauchUserQuery(newLinklist);
+	launchUserQuery(newLinklist);
 
 	cleanup(newLinklist);
 

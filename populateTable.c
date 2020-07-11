@@ -20,8 +20,8 @@ void populateTable(linkedListNode_t ** hashtbl, FILE * dataFile){
 		if(newLine != NULL){
 			*newLine = '\0';
 		}
-		for(int i =0; i<(sizeof newArray/sizeof newArray[0]);i++){
-			tolower(newArray[i]);
+		for(int i =0; i<strlen(newArray);i++){
+			newArray[i]=tolower(newArray[i]);
 		}
 
 		llTableAddString(hashtbl,newArray);

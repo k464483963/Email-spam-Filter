@@ -27,7 +27,7 @@ int main(int argc, char *argv[] ){
 		return 0;
 	}
 	if(argc==3){
-		fw=fopen(argv[2],"r+");
+		fw=fopen(argv[2],"rb");
 	}
 	if(fw == NULL){
 		perror(FILTER_ERR);

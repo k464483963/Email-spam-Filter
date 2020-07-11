@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 #include "pa1.h"
 
 void populateTable(linkedListNode_t ** hashtbl, FILE * dataFile){

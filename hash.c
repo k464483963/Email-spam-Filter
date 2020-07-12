@@ -11,16 +11,28 @@
 #include "pa1.h"
 #define INCREMENT 2
 
+/*Function Name: hash.c
+ *Function Prototype:unsigned int hash (char * str);
+ *Description: This function would get the str and hash the value.
+ *Parameters: char * str would pass in function for hash.
+ *Side Effects: None
+ *Error Conditions: None
+ *return value: return hashVal for string
+ */
+unsigned int hash (char * str){	 
+	unsigned int hashVal = HASH_START_VAL;//variable store the default
+					      // value
 
- unsigned int hash (char * str){	 
-	unsigned int hashVal = HASH_START_VAL;
-	for(int i=0;i<strlen(str);i=i+INCREMENT){
-		hashVal=(hashVal*HASH_PRIME)+str[i];
+	//to check every even index
+	for(int i = 0; i < strlen(str); i = i + INCREMENT) { 
+		hashVal=(hashVal*HASH_PRIME)+str[i];//sum every hash value
 	}
-	for(int i=1;i<strlen(str);i=i+INCREMENT){	
-		hashVal=(hashVal*HASH_PRIME)+str[i];
+
+	//to check every odd index
+	for(int i = 1; i < strlen(str); i = i + INCREMENT) { 
+		hashVal=(hashVal*HASH_PRIME)+str[i];//sum every hash value
 	}
-	
+
 	return hashVal;
 
 }

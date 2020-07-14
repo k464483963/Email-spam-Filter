@@ -22,7 +22,7 @@
  */
 void prependNode(linkedListNode_t ** head, char * str){
 	linkedListNode_t * newAd = newLinkedListNode();//create a new Node
-						       //pointer
+							//pointer
 	  (*newAd).value = strcp(str);//store the string value
 	  			      //in the new Node value
 	  newAd->next = *head;//new node next pointer 

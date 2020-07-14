@@ -1,15 +1,16 @@
 /*
- * Filename: spamFilter.c
+ * Filename: spamFilterEC2.c
  * Author: HanJie Zhan
  * UserId: cs30s120cg
  * Date:07/05/2020
- * Sources of help: tutors.
+ * Sources of help: none.
  */
 
 #include <stdio.h>
 #include <string.h>
 #include "pa1.h"
 #include "pa1Strings.h"
+#include "launchUserQueryEC.c"
 #define  TWO_COMMAND 2
 #define  THREE_COMMAND 3
 
@@ -49,7 +50,7 @@ int main(int argc, char *argv[] ){
 	if(argc == THREE_COMMAND){
 
 		//open the file then read the contest inside file
-		fw=fopen(argv[TWO_COMMAND],"r");
+		fw=fopen(argv[TWO_COMMAND],"rb");
 
 	}
 

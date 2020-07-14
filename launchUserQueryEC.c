@@ -24,40 +24,55 @@
  */ 
 void launchUserQuery( linkedListNode_t ** hashtbl ){
 
-  // Perform searching functionality
-  char buf[BUFSIZ];
-  printf( USER_PROMPT );
+	// Perform searching functionality
+	char buf[BUFSIZ];
+	printf( USER_PROMPT );
 
-  // read input line by line
-  while ( fgets( buf, BUFSIZ, stdin ) ) {
-    // find and remove any newlines
-    char * nlptr = strchr( buf, '\n' );
-    if ( nlptr ) {
-      *nlptr = '\0';
-    }
+	// read input line by line
+	while ( fgets( buf, BUFSIZ, stdin ) ) {
+		char *findNewline = strchr(buf, '\n');
+		while(findNewline != NULL){
+			char * findSpace = strchr( buf, ' ');
+			if( findSpace) {
+				*findSpace = '\0';
+			} 
+		}
 
-    //if the user only pressed enter, nothing entered, dont search, reprompt
-    if(buf[0] == '\0') {
-      printf( USER_PROMPT );
-      continue;
-    }
+		// find and remove any newlines
+		char * nlptr = strchr( buf, '\n' );
+		if ( nlptr ) {
+			*nlptr = '\0';
+		}
 
-    //lowercase the word
-    int i;
-    for( i = 0; i < strlen(buf); i++) {
-      buf[i] = tolower(buf[i]);
-    }
+		//if the user only pressed enter, nothing entered, dont search,
+		//reprompt
+		if(buf[0] == '\0') {
+			printf( USER_PROMPT );
+			continue;
+		}
 
-    // Look in the three tables to find how many collisions occurred
-    int result = checkTable( buf, hashtbl );
-    if ( result == 1 ) {
-      printf( WORD_FOUND, buf );
-    }
-    else {
-      printf( WORD_NOT_FOUND, buf );
-    }
-    printf( USER_PROMPT );
-  }
+		//lowercase the word
+		int i;
+		for( i = 0; i < strlen(buf); i++) {
+			buf[i] = tolower(buf[i]);
+		}
 
-  printf( "\n" );
+		// Look in the three tables to find how many collisions occurred
+		char *findNew = strchr(buf, '\0');
+		while(findNew != NULL){
+			int result = checkTable( buf, hashtbl );
+			printf("\n");
+			printf(buf);
+			printf("---");
+			if ( result == 1 ) {
+				printf( WORD_FOUND, buf );
+			}
+			else {
+				printf( WORD_NOT_FOUND, buf );
+			}
+		}
+		printf( USER_PROMPT );
+	}
+
+	printf( "\n" );
 }

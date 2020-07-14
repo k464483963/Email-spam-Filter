@@ -32,7 +32,7 @@ void populateTable(linkedListNode_t ** hashtbl, FILE * dataFile){
 	while(fgets(newArray,DEFAULT_SIZE,dataFile) != 0){
 
 		char *newLine = strchr(newArray,'\n');//search the '\n' char
-		
+	
 		//if search the '\n' char newLine is not NULL then change
 		//'\n' char to '\0' null character.
 		if(newLine != NULL) {

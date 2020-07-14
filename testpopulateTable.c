@@ -21,10 +21,11 @@
 void testpopulateTable() {
     char c[] = "we";
     FILE *fil;
-   fil = fopen("file.txt","r");
-  if(!fil){
-	  perror("error opening");
-	  return;} 
+    FILE *newFil;
+    newFil = fopen("newFiles.txt","w");
+   fputs("We", newFil);
+   fclose(newFil);
+   fil = fopen("newFiles.txt","r");
    linkedListNode_t ** newLinklist = newLinkedListArray(DEFAULT_SIZE);
    populateTable(newLinklist,fil);
    unsigned int hashindex = hash(c);

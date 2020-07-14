@@ -4,7 +4,7 @@
 #
 
 # You may change me for debugging purposes.
-SIZE = 2
+SIZE = 2003
 
 HEADERS		= pa1.h pa1Strings.h test.h
 		  

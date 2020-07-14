@@ -1,3 +1,65 @@
 /*
-*
-*/
+ * Filename: README
+ * Author: HanJie Zhan
+ * UserId: cs30s120cg
+ * Date:07/05/2020
+ * Sources of help: none.
+ */
+
+Description
+-----------
+    This project is to take the user enter email, First, the project would 
+open the files which is include a lot of spam email. second, the email would 
+store in hash table. finally, the emails enter by the user would check if the
+ emails are exist in the files.
+
+How to compile
+-----------
+    To compile this project, simply log in ucsd account in the terminal. 
+enter the pa1 directory which include the Makefile and type "make".
+
+How to run
+-----------
+    To run the project, type the executable name. and followed the files
+include all the spam email. For example, ./spamFilter -i ~/../public/emails/
+emails_100
+
+Normal output
+-----------
+    Normal output is printed to stdout if the email exist or not. An example 
+of normal output would be the following: 
+[cs30s120cg@ieng6-203]:pa1:509$ ./spamFilter -i ~/../public/emails/emails_10
+Enter a word: widjf@gmail.com
+widjf@gmail.com is not SPAM!
+Enter a word: erg@spam.me
+erg@spam.me is SPAM!
+
+Abnormal output
+-----------
+    Abnormal output is printed to stderr. This occur if there are not less 1 
+argument or more than 3 argument would be the follow:
+[cs30s120cg@ieng6-203]:pa1:510$ ./spamFilter                                
+Incorrect number of args.
+
+Usage: ./spamFilter {-i dataFile | -h}
+
+Testing
+-----------
+This project have testhash function provide. It tried to test the hash.c files
+and given some input and the result of output. To see if the result would be
+same or not. I created test file to test my project. The test file is 
+testpopulateTable.c try to open other files and simple input string "we". 
+after call function would return same string. Some wrong command would make 
+the project not run or error message show when running spamFilter file:
+   -if only one argument input error message show
+   -if enter nothing when the prompt "Enter the word".would need enter again
+   -if enter not the email files address. fail open file messge show
+
+Some command need to know:
+-----------
+1)enter make would complier or the files in the project
+
+2)if the files too many just type rm *.o to get rid of .o files.
+
+3)can simple enter make clean, and type make complier again.
+
